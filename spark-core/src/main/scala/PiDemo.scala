@@ -13,7 +13,7 @@ object PiDemo {
 
     val NUM_SAMPLES=(math.random()*100).toInt
 
-    val count= sc.parallelize(seq= 1 to NUM_SAMPLES).filter{
+    val count = sc.parallelize(seq= 1 to NUM_SAMPLES).filter{
         _=>
         val x = math.random()
         val y = math.random()
