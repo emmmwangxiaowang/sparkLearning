@@ -124,7 +124,7 @@ object TransformationDemo {
       .groupByKey()
       .foreach(println)
 
-    // 用 range 填充数组 flatMap 将 数组中的每个元素转换为 1 到 该元素
+    // 用 range 填充数组 flatMap 将 数组中的每个元素转换为 1 到 该元素,等效于 1 until x
     sc.makeRDD(Array.range(1 , 10 ,2))
       .flatMap(ele=>1 to ele)
       // 当对 ele 没有操作时 语法糖简写 为 方法体
