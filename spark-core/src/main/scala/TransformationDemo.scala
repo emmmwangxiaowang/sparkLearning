@@ -168,6 +168,8 @@ object TransformationDemo {
 
     sc.parallelize(List(("cat",2),("cat",4),("dog",5),("monkey",6),("dog",3),("cat",5),("cat",4)),3)
       .aggregateByKey(zeroValue = 0)((a,b)=> if(a>b) a else b ,_+_)
+      // aggregate 第二个参数是一个消费型函数  两个参数变一个参数   math.max 也是 2个参数变一个参数,所以可以用来当作 aggregate 的参数
+      // .aggregateByKey(zeroValue = 0)(math.max,_+_)
       .mapPartitionsWithIndex((index:Int,iter:Iterator[(String,Int)])=>{
         iter.map(x=>"[partID:"+index+" value:"+x+"]")
       })
