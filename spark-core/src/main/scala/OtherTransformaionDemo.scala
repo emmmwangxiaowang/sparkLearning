@@ -73,7 +73,8 @@ object OtherTransformaionDemo {
         println(acc._1+":"+acc._2)
         (acc._1+v,acc._2+1)
       },
-      (acc1:(Int,Int),acc2:(Int,Int))=>(acc1._1+acc2._1,acc1._2+acc2._2))
+      (acc1:(Int,Int),acc2:(Int,Int))=>(acc1._1+acc2._1,acc1._2+acc2._2)
+    )
       .map({
             // 最后的结果 是 (String,(Int,Int)) 类型  String 为 key , (Int,Int) 中 第一个 Int 为相同 key 的 value之和, 第二个 Int 为相同 key 的个数
         case (key,value) =>(key,value._1/value._2)
